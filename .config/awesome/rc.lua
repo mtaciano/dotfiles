@@ -5,6 +5,7 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local awesome = require("awesome")
 local root = require("root")
+local client = require("client")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -763,7 +764,7 @@ awful.rules.rules = {
 --- Signals ---
 
 -- Signal function to execute when a new client appears.
-awesome.client.connect_signal("manage", function(c)
+client.connect_signal("manage", function(c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
@@ -779,7 +780,7 @@ awesome.client.connect_signal("manage", function(c)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-awesome.client.connect_signal("request::titlebars", function(c)
+client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = gears.table.join(
         awful.button({}, 1, function()
@@ -817,14 +818,14 @@ awesome.client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-awesome.client.connect_signal("mouse::enter", function(c)
+client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
-awesome.client.connect_signal("focus", function(c)
+client.connect_signal("focus", function(c)
     c.border_color = beautiful.border_focus
 end)
-awesome.client.connect_signal("unfocus", function(c)
+client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
 
@@ -837,15 +838,15 @@ local function change_border(c)
         c.border_color = beautiful.border_focus
     end
 end
-awesome.client.connect_signal("property::maximized", function(c)
+client.connect_signal("property::maximized", function(c)
     change_border(c)
 end)
-awesome.client.connect_signal("focus", function(c)
+client.connect_signal("focus", function(c)
     change_border(c)
 end)
 
 -- Add a listener to windows without a class, apply rules when they get one
-awesome.client.connect_signal("manage", function(c)
+client.connect_signal("manage", function(c)
     if c.class == nil then
         c.minimized = true
         c:connect_signal("property::class", function()
