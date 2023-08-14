@@ -4,6 +4,9 @@ require("user.plugins")
 -- Telescope
 require("user.telescope")
 
+-- Git
+require("user.gitsigns")
+
 -- LSP
 require("user.lsp.signature")
 require("user.lsp.mason")

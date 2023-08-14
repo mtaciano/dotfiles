@@ -14,14 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup({
-    -- The colorscheme should be available when starting Neovim
-    {
+    { -- Colorscheme
         "ellisonleao/gruvbox.nvim",
         lazy = false, -- Make sure we load this during startup
         priority = 1000, -- Load this before all the other start plugins
     },
-    -- LSP manager
-    {
+    { -- LSP manager
         "williamboman/mason.nvim",
         lazy = false, -- It's not recommended to lazy load mason
         dependencies = {
@@ -29,22 +27,21 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
         },
     },
-    -- Formatting
-    { "mhartington/formatter.nvim" },
-    -- Code completion
-    {
+    { "mhartington/formatter.nvim" }, -- Formatting
+    { -- Code completion
         "hrsh7th/nvim-cmp",
         dependencies = {
             "neovim/nvim-lspconfig",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
             "hrsh7th/cmp-cmdline",
             "ray-x/lsp_signature.nvim",
         },
     },
-    -- File explorer
-    {
+    { -- File explorer
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
         dependencies = {
@@ -55,16 +52,17 @@ require("lazy").setup({
             },
         },
     },
-    -- Git wrapper
-    { "tpope/vim-fugitive" },
-    -- Statusline
-    { "echasnovski/mini.nvim" },
-    {
+    { "tpope/vim-fugitive" }, -- Git wrapper
+    { "echasnovski/mini.nvim" }, -- Statusline
+    { -- Keybindings menu
         "folke/which-key.nvim",
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
+    },
+    { -- Git signs
+        "lewis6991/gitsigns.nvim",
     },
 })
