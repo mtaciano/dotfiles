@@ -1,6 +1,9 @@
 -- Plugins
 require("user.plugins")
 
+-- Treesitter
+require("user.treesitter")
+
 -- Telescope
 require("user.telescope")
 

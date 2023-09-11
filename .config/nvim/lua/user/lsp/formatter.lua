@@ -15,6 +15,9 @@ require("formatter").setup({
         typescript = {
             require("formatter.filetypes.typescript").prettier,
         },
+        javascript = {
+            require("formatter.filetypes.javascript").prettier,
+        },
         rust = {
             require("formatter.filetypes.rust").rustfmt,
         },
