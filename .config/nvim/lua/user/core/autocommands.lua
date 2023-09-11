@@ -1,23 +1,40 @@
--- Highlight yanked text for 250ms using the "Visual" highlight group
-vim.cmd([[
-    augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank({ higroup="Visual", timeout=250 })
-    augroup END
-]])
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+
+-- Highlight yanked text for 500ms using the "Visual" highlight group
+autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "Visual",
+            timeout = "500",
+        })
+    end,
+})
+
+-- Dont auto comment new lines
+autocmd("BufEnter", {
+    pattern = { "*" },
+    command = "set fo-=c fo-=r fo-=o",
+})
 
 -- Always remove trailing whitespace
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+autocmd({ "BufWritePre" }, {
     pattern = { "*" },
     command = [[%s/\s\+$//e]],
 })
 
--- Change max line width when in a rust file
-vim.cmd([[
-    augroup cc
-    autocmd FileType rust set colorcolumn=100
-    augroup END
-]])
+-- Set colorcolumn
+autocmd("Filetype", {
+    pattern = { "rust" },
+    command = "set colorcolumn=100",
+})
+autocmd("Filetype", {
+    pattern = { "python" },
+    command = "set colorcolumn=88",
+})
 
 -- Format on save
-vim.cmd([[ autocmd BufWritePost * FormatWrite ]])
+autocmd("BufWritePost", {
+    pattern = { "*" },
+    command = "FormatWrite",
+})
