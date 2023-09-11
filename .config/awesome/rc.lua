@@ -73,6 +73,9 @@ local theme_path = string.format(
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
+-- TODO: this is not a good solution, we should set `terminal` to _only_
+-- `wezterm`, but then it will not attach to tmux, there's obviously
+-- a better solution but it works for now :).
 local terminal = "wezterm start tmux attach"
 local editor = os.getenv("EDITOR") or "nano"
 local editor_cmd = terminal .. " -e " .. editor
@@ -702,28 +705,6 @@ awful.rules.rules = {
         },
     },
 
-    {
-        rule = { class = "quartus" },
-        properties = {
-            floating = false,
-            above = false,
-            maximized = true,
-            sticky = false,
-        },
-    },
-
-    -- Set VSCode to always map on the tag named "dev" on screen 1.
-    {
-        rule = { class = "Code" },
-        properties = { screen = 1, tag = "dev" },
-    },
-
-    -- Set kitty to always map on the tag named "term" on screen 1.
-    {
-        rule = { class = "kitty" },
-        properties = { screen = 1, tag = "term" },
-    },
-
     -- Set wezterm to always map on the tag named "term" on screen 1.
     {
         rule = { class = "org.wezfurlong.wezterm" },
@@ -752,12 +733,6 @@ awful.rules.rules = {
     {
         rule = { class = "discord" },
         properties = { screen = 1, tag = "irc" },
-    },
-
-    -- Set KeePassXC to always map on the tag named "pwd" on screen 1.
-    {
-        rule = { class = "KeePassXC" },
-        properties = { screen = 1, tag = "pwd" },
     },
 }
 

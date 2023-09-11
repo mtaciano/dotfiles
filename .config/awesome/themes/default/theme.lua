@@ -162,7 +162,6 @@ theme.ic_icons = {
     ["discord"] = icon_dir .. "discord.svg",
     ["Alacritty"] = icon_dir .. "terminal.svg",
     ["kitty"] = icon_dir .. "terminal.svg",
-    ["st-256color"] = icon_dir .. "terminal.svg",
     ["Spotify"] = icon_dir .. "spotify.svg",
     ["Nemo"] = icon_dir .. "nemo.svg",
     ["qBittorrent"] = icon_dir .. "qbittorrent.svg",
