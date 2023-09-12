@@ -47,16 +47,6 @@ local on_attach = function(client, bufnr)
         vim.lsp.buf.code_action,
         { desc = "Show code actions" }
     )
-    keymap.set("n", "<Leader>ff", builtin.find_files, { desc = "File Picker" })
-    keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Manage Buffers" })
-    keymap.set(
-        "n",
-        "<Leader>fgf",
-        builtin.git_files,
-        { desc = "File Picker (respects .gitignore)" }
-    )
-    keymap.set("n", "<Leader>flg", builtin.live_grep, { desc = "Grep CWD" })
-    keymap.set("n", "<Leader>fm", builtin.man_pages, { desc = "Man Pages" })
     keymap.set(
         "n",
         "<Leader>flr",
