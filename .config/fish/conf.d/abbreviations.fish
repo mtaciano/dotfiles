@@ -6,8 +6,8 @@ abbr -a -g gcc 'gcc -Wall -Wextra'
 abbr -a -g emerge 'sudo emerge --ask'
 abbr -a -g emerge-update 'sudo emerge --ask --verbose --update --deep --changed-use @world'
 
-# Use different commands even if muscle memory kicks in
-abbr -a -g ls 'eza -lahg --git --icons'
+# Use different commands but write the same commands
+abbr -a -g ls 'eza -hgoal --git --icons --time-style long-iso --no-user'
 abbr -a -g cd 'z'
 
 # Use neovim as vim (easier to write)
