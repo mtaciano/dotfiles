@@ -24,3 +24,6 @@ require("user.core.autocommands")
 
 -- Which key
 require("user.which-key")
+
+-- Surround
+require("user.surround")
