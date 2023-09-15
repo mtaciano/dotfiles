@@ -11,6 +11,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+config.term = "wezterm"
 config.color_scheme = "Gruvbox dark, hard (base16)"
 config.font = wezterm.font("JetBrains Mono")
 config.harfbuzz_features = { "zero" }
