@@ -160,11 +160,6 @@ require("lspconfig").eslint.setup({
 require("lspconfig").tsserver.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-        implicitProjectConfiguration = {
-            checkJs = true,
-        },
-    },
 })
 
 -- Python
