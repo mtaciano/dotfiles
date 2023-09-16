@@ -18,6 +18,9 @@ require("formatter").setup({
         javascript = {
             require("formatter.filetypes.javascript").prettier,
         },
+        json = {
+            require("formatter.filetypes.json").prettier,
+        },
         rust = {
             require("formatter.filetypes.rust").rustfmt,
         },
