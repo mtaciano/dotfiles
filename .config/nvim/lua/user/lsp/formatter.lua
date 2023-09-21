@@ -22,7 +22,7 @@ require("formatter").setup({
             require("formatter.filetypes.javascript").prettier,
         },
         javascriptreact = {
-            require("formatter.filetypes.typescriptreact").prettier,
+            require("formatter.filetypes.javascriptreact").prettier,
         },
         json = {
             require("formatter.filetypes.json").prettier,
