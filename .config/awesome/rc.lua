@@ -78,7 +78,7 @@ beautiful.init(theme_path)
 -- a better solution but it works for now :).
 local terminal = "wezterm start tmux attach"
 local editor = os.getenv("EDITOR") or "nano"
-local editor_cmd = terminal .. " -e " .. editor
+local editor_cmd = terminal .. " -c " .. editor
 
 -- Set the locale
 os.setlocale("en_US.utf8")
@@ -833,16 +833,18 @@ end)
 -- }}}
 
 -- Startup
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+awful.spawn.with_shell(
+    string.format("%s/.config/awesome/autostart.sh", os.getenv("HOME"))
+)
 
 -- Run garbage collector regularly to prevent memory leaks
-gears.timer({
-    timeout = 30,
-    autostart = true,
-    callback = function()
-        collectgarbage()
-    end,
-})
+-- gears.timer({
+--     timeout = 30,
+--     autostart = true,
+--     callback = function()
+--         collectgarbage()
+--     end,
+-- })
 
 -- Override client icons
 require("icon_customizer")({ delay = 0.2 })
