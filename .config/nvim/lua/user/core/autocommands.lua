@@ -18,7 +18,7 @@ autocmd("BufEnter", {
 })
 
 -- Always remove trailing whitespace
-autocmd({ "BufWritePre" }, {
+autocmd("BufWritePre", {
     pattern = { "*" },
     command = [[%s/\s\+$//e]],
 })

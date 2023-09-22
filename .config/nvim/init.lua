@@ -4,11 +4,14 @@ require("user.plugins")
 -- Treesitter
 require("user.treesitter")
 
--- Telescope
-require("user.telescope")
+-- Surround
+require("user.surround")
 
 -- Git
 require("user.gitsigns")
+
+-- Telescope
+require("user.telescope")
 
 -- LSP
 require("user.lsp.signature")
@@ -24,6 +27,3 @@ require("user.core.autocommands")
 
 -- Which key
 require("user.which-key")
-
--- Surround
-require("user.surround")
