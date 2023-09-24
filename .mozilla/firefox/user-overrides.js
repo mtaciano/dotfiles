@@ -1,9 +1,9 @@
 /******
-*    name: mtaciano user-overrides.js
-*    date: 11 September 2023
-* version: 1
-*     url: https://github.com/mtaciano/dotfiles/user-overrides.js
-******/
+ *    name: mtaciano user-overrides.js
+ *    date: 24 September 2023
+ * version: 2
+ *     url: https://github.com/mtaciano/dotfiles/user-overrides.js
+ ******/
 
 /* 0102: set startup page [SETUP-CHROME]
  * 0=blank, 1=home, 2=last visited page, 3=resume previous session
@@ -20,7 +20,10 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // Defense-in-depth
 
 /* 0404: disable SB checks for unwanted software
  * [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software" ***/
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+user_pref(
+  "browser.safebrowsing.downloads.remote.block_potentially_unwanted",
+  false,
+);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /* 0906: enforce no automatic authentication on Microsoft sites [FF91+] [WINDOWS 10+]
@@ -44,7 +47,7 @@ user_pref("browser.uitour.url", ""); // Defense-in-depth
  * [NOTE] If "history" is true, downloads will also be cleared
  * [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
  * [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
-user_pref("privacy.clearOnShutdown.history", false);   // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.history", false); // [DEFAULT: true]
 
 /* 4501: enable privacy.resistFingerprinting
  * [SETUP-WEB] RFP can cause some website breakage: mainly canvas, use a site exception via the urlbar
@@ -82,4 +85,4 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
  * Examples: "secretplace,com", "secretplace/com", "secretplace com", "secret place.com"
  * [NOTE] This does not affect explicit user action such as using search buttons in the
  * dropdown, or using keyword search shortcuts you configure in options (e.g. "d" for DuckDuckGo) ***/
-user_pref("keyword.enabled", false);
+// user_pref("keyword.enabled", false);
