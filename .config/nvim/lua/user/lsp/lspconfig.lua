@@ -1,5 +1,6 @@
 local capabilities = require("user.lsp.completion")
 local builtin = require("telescope.builtin")
+local signature = require("lsp_signature")
 local keymap = vim.keymap
 
 local on_attach = function(client, bufnr)
@@ -28,6 +29,12 @@ local on_attach = function(client, bufnr)
         "<Leader>ls",
         vim.lsp.buf.signature_help,
         { desc = "Show function signature" }
+    )
+    keymap.set(
+        "n",
+        "<C-k>",
+        signature.toggle_float_win,
+        { desc = "Togle function signature" }
     )
     keymap.set(
         "n",
