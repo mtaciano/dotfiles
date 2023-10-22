@@ -20,10 +20,7 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // Defense-in-depth
 
 /* 0404: disable SB checks for unwanted software
  * [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software" ***/
-user_pref(
-  "browser.safebrowsing.downloads.remote.block_potentially_unwanted",
-  false,
-);
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /* 0906: enforce no automatic authentication on Microsoft sites [FF91+] [WINDOWS 10+]
