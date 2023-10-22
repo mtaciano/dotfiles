@@ -1,6 +1,6 @@
-[submodule "~/.config/awesome/icon_customizer"]
-	path = ~/.config/awesome/icon_customizer
-	url = git@github.com:intrntbrn/icon_customizer.git
-[submodule "~/.config/awesome/lain"]
-	path = ~/.config/awesome/lain
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
 	url = git@github.com:lcpz/lain.git
+[submodule ".config/awesome/icon_customizer"]
+	path = .config/awesome/icon_customizer
+	url = git@github.com:intrntbrn/icon_customizer.git
