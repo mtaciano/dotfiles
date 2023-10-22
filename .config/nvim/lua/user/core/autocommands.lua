@@ -33,6 +33,12 @@ autocmd("Filetype", {
     command = "set colorcolumn=88",
 })
 
+-- Close Netrw when selecting a file
+autocmd("Filetype", {
+    pattern = { "netrw" },
+    command = "setlocal bufhidden=wipe",
+})
+
 -- Format on save
 autocmd("BufWritePost", {
     pattern = { "*" },
