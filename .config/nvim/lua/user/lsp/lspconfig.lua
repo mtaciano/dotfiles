@@ -26,6 +26,12 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
+        "<C-h>",
+        vim.lsp.buf.hover,
+        { desc = "Show hover information" }
+    )
+    keymap.set(
+        "n",
         "<Leader>ls",
         vim.lsp.buf.signature_help,
         { desc = "Show function signature" }
