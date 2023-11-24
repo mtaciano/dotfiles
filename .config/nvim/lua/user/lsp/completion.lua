@@ -42,6 +42,7 @@ cmp.setup({
         { name = "buffer" },
     }),
     experimental = { ghost_text = true },
+    preselect = cmp.PreselectMode.None,
 })
 
 -- Use buffer source for `/` and `?`

@@ -41,8 +41,21 @@ keymap.set(
     '"_dP',
     { desc = "Paste and don't change register" }
 )
-keymap.set("n", "<C-d>", "<C-d>zz") -- Center the cursor when using <C-d>
-keymap.set("n", "<C-u>", "<C-u>zz") -- Center the cursor when using <C-u>
+keymap.set(
+    "n",
+    "<C-d>",
+    "<C-d>zz",
+    { desc = "Center the cursor when using <C-d>" }
+)
+keymap.set(
+    "n",
+    "<C-u>",
+    "<C-u>zz",
+    { desc = "Center the cursor when using <C-u>" }
+)
+keymap.set("n", "n", "nzz", { desc = "Center search results" })
+keymap.set("", "H", "^", { desc = "Go to the first non-blank char"})
+keymap.set("", "L", "$", { desc = "Go to the last non-blank char"})
 keymap.set("n", "<Leader>ff", builtin.find_files, { desc = "File Picker" })
 keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Manage Buffers" })
 keymap.set(
@@ -53,3 +66,4 @@ keymap.set(
 )
 keymap.set("n", "<Leader>flg", builtin.live_grep, { desc = "Grep CWD" })
 keymap.set("n", "<Leader>fm", builtin.man_pages, { desc = "Man Pages" })
+keymap.set("i", "<C-H>", "<C-w>", { desc = "Delete word" })

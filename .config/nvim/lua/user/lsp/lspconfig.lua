@@ -36,6 +36,9 @@ local on_attach = function(client, bufnr)
         vim.lsp.buf.signature_help,
         { desc = "Show function signature" }
     )
+    keymap.set("n", "<Leader>lh", function()
+        vim.lsp.inlay_hint(bufnr, nil)
+    end, { desc = "Toggle inlay hints" })
     keymap.set(
         "n",
         "<C-k>",
@@ -190,6 +193,10 @@ require("lspconfig").pylsp.setup({
     },
 })
 require("lspconfig").ruff_lsp.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+require("lspconfig").clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
