@@ -20,12 +20,6 @@ set __fish_git_prompt_char_conflictedstate x
 set -x GPG_TTY $(tty)
 set -x FZF_DEFAULT_OPTS --cycle
 
-# Path
-fish_add_path "$HOME/.cargo/bin"
-
-# SSH sock location
-# set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/keyring/ssh"
-
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
