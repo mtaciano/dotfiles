@@ -577,11 +577,11 @@ for i = 1, 9 do
             { modkey, "Shift" },
             "#" .. i + 9,
             function()
-                if awesome.client.focus then
-                    local tag = awesome.client.focus.screen.tags[i]
+                if client.focus then
+                    local tag = client.focus.screen.tags[i]
 
                     if tag then
-                        awesome.client.focus:move_to_tag(tag)
+                        client.focus:move_to_tag(tag)
                     end
                 end
             end,
@@ -590,11 +590,11 @@ for i = 1, 9 do
 
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
-            if awesome.client.focus then
-                local tag = awesome.client.focus.screen.tags[i]
+            if client.focus then
+                local tag = client.focus.screen.tags[i]
 
                 if tag then
-                    awesome.client.focus:toggle_tag(tag)
+                    client.focus:toggle_tag(tag)
                 end
             end
         end, {
