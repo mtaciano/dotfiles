@@ -10,6 +10,9 @@ run() {
 # Invokes a prompt to type your password for authentication
 run /usr/libexec/polkit-gnome-authentication-agent-1
 
+# Start gpg-agent
+run gpgconf --launch gpg-agent
+
 # Make audio work
 run gentoo-pipewire-launcher
 
