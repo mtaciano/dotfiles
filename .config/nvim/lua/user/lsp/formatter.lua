@@ -24,6 +24,9 @@ require("formatter").setup({
         javascriptreact = {
             require("formatter.filetypes.javascriptreact").prettier,
         },
+        css = {
+            require("formatter.filetypes.css").prettier,
+        },
         json = {
             require("formatter.filetypes.json").prettier,
         },

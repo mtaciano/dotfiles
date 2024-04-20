@@ -37,13 +37,13 @@ local on_attach = function(client, bufnr)
         { desc = "Show function signature" }
     )
     keymap.set("n", "<Leader>lh", function()
-        vim.lsp.inlay_hint(bufnr, nil)
+        vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
     end, { desc = "Toggle inlay hints" })
     keymap.set(
         "n",
         "<C-k>",
         signature.toggle_float_win,
-        { desc = "Togle function signature" }
+        { desc = "Toggle function signature" }
     )
     keymap.set(
         "n",
@@ -95,9 +95,15 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>fld",
+        "<Leader>flds",
         builtin.diagnostics,
         { desc = "Show diagnostics" }
+    )
+    keymap.set(
+        "n",
+        "<Leader>fldo",
+        vim.diagnostic.open_float,
+        { desc = "Show whole diagnostic" }
     )
     keymap.set(
         "n",
@@ -178,6 +184,12 @@ require("lspconfig").tsserver.setup({
     on_attach = on_attach,
 })
 
+-- TailwindCSS
+require("lspconfig").tailwindcss.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
 -- Python
 require("lspconfig").pylsp.setup({
     capabilities = capabilities,
@@ -196,6 +208,8 @@ require("lspconfig").ruff_lsp.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+-- C/C++
 require("lspconfig").clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach,
