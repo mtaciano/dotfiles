@@ -4,7 +4,7 @@ abbr -a -g gcc 'gcc -Wall -Wextra'
 
 # Make usage of `emerge` easier
 abbr -a -g emerge 'sudo emerge --ask'
-abbr -a -g emerge-update 'sudo emerge --ask --verbose --update --deep --changed-use @world'
+abbr -a -g emerge-update 'sudo emerge --ask --verbose --update --deep --changed-use --with-bdeps=y --complete-graph @world'
 
 # Use different commands but write the same commands
 abbr -a -g ls 'eza'
