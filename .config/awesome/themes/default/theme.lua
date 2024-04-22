@@ -13,23 +13,23 @@ local theme = {}
 
 theme.font = "Terminus 8.5"
 
-theme.bg_normal = "#191d21"
-theme.bg_focus = "#B22222"
-theme.bg_urgent = "#ff0000"
-theme.bg_minimize = "#721616"
+theme.bg_normal = "#191D21"
+theme.bg_focus = "#B25B20"
+theme.bg_urgent = "#FF6700"
+theme.bg_minimize = "#713A14"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#d9d9d9"
-theme.fg_focus = "#ffffff"
-theme.fg_urgent = "#ffffff"
-theme.fg_minimize = "#ffffff"
+theme.fg_normal = "#ECECEC"
+theme.fg_focus = "#FFFFFF"
+theme.fg_urgent = "#ECECEC"
+theme.fg_minimize = theme.fg_normal
 
 theme.useless_gap = dpi(4)
 theme.gap_single_client = true
 theme.border_width = dpi(2)
 theme.border_normal = "#000000"
-theme.border_focus = "#B22222"
-theme.border_marked = "#91231c"
+theme.border_focus = theme.bg_focus
+theme.border_marked = theme.bg_focus
 
 -- There are other variable sets
 -- overriding the default one when
@@ -42,7 +42,7 @@ theme.border_marked = "#91231c"
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
---theme.taglist_bg_focus = "#ff0000"
+--theme.taglist_bg_focus = "#FF0000"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(6)
@@ -61,7 +61,7 @@ theme.notification_max_height = dpi(150)
 theme.notification_max_width = dpi(500)
 theme.notification_icon_size = dpi(150)
 
-theme.systray_icon_spacing = dpi(3)
+theme.systray_icon_spacing = dpi(2)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -73,7 +73,7 @@ theme.menu_width = dpi(100)
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+--theme.bg_widget = "#CC0000"
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path
