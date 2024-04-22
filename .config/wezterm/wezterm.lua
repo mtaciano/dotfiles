@@ -23,8 +23,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "EaseOut"
 config.window_padding = {
-    left = "0.5%",
-    right = "0.5%",
+    left = "0.25%",
+    right = "0.25%",
     top = "0.5%",
     bottom = "0%",
 }
