@@ -73,15 +73,16 @@ local theme_path = string.format(
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
--- TODO: this is not a good solution, we should set `terminal` to _only_
--- `wezterm`, but then it will not attach to tmux, there's obviously
--- a better solution but it works for now :).
-local terminal = "wezterm start tmux attach"
+local terminal = "wezterm"
+local terminal_attached = terminal .. " start -- tmux attach;"
 local editor = os.getenv("EDITOR") or "nano"
-local editor_cmd = terminal .. " -c " .. editor
+local editor_cmd = terminal_attached .. " new-window " .. editor
+local browser = "firefox-bin"
+local awesomedocs = "https://awesomewm.org/doc/api/index.html"
 
 -- Set the locale
-os.setlocale("en_US.utf8")
+-- os.setlocale("en_US.utf8")
+os.setlocale("pt_BR.utf8")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -109,7 +110,14 @@ local awesome_menu = {
             hotkeys_popup.show_help(nil, awful.screen.focused())
         end,
     },
-    { "manual", terminal .. " -e man awesome" },
+    {
+        "manual",
+        terminal
+            .. " start --always-new-process -- "
+            .. browser
+            .. " "
+            .. awesomedocs,
+    },
     { "edit config", editor_cmd .. " " .. awesome.conffile },
     { "restart", awesome.restart },
     {
@@ -124,7 +132,7 @@ local awesome_menu = {
 local main_menu = awful.menu({
     items = {
         { "awesome", awesome_menu, beautiful.awesome_icon },
-        { "open terminal", terminal },
+        { "open terminal", terminal_attached },
     },
 })
 
@@ -141,43 +149,88 @@ menubar.utils.terminal = terminal
 --- Wibar ---
 
 -- Clock with calendar
-local text_clock = wibox.widget.textclock("%H:%M | %A, %d de %B de %Y ", 10)
-local calendar = awful.widget.calendar_popup.month()
+local text_clock = wibox.widget.textclock("(%R :: %A, %F) ", 10)
+local calendar = awful.widget.calendar_popup.month({
+    long_weekdays = true,
+})
 calendar:attach(text_clock, "tr")
 
 -- CPU
 local cpu = lain.widget.cpu({
     settings = function()
         local font = "Terminus 8.5"
+        local cpu_num = tonumber(cpu_now.usage)
+        local cpu_state = nil
 
-        widget:set_markup(markup.font(font, "cpu " .. cpu_now.usage .. "% "))
+        if cpu_num < 33 then
+            cpu_state = markup("#9BCD32", cpu_num)
+        elseif cpu_num < 66 then
+            cpu_state = markup("#FFBE46", cpu_num)
+        else
+            cpu_state = markup("#FF4B4B", cpu_num)
+        end
+
+        widget:set_markup(markup.font(font, "(cpu% :: " .. cpu_state .. ") "))
     end,
 })
 
 -- Network state checker
 local netstate = lain.widget.net({
     settings = function()
-        local net_state = nil
         local font = "Terminus 8.5"
+        local net_state = nil
 
         if net_now.state == "up" then
-            net_state = markup("#7CFC00", "on")
+            net_state = markup("#9BCD32", "on")
         else
-            net_state = markup("#cc0000", "off")
+            net_state = markup("#FF4B4B", "off")
         end
 
-        widget:set_markup(markup.font(font, "net " .. net_state .. " "))
+        widget:set_markup(markup.font(font, "(inet :: " .. net_state .. ") "))
     end,
 })
 
+-- Memory
 local mem_widget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
-vicious.register(
-    mem_widget,
-    vicious.widgets.mem,
-    " mem $1% ($2MiB) swap $5% ($6MiB) ",
-    10
-)
+vicious.register(mem_widget, vicious.widgets.mem, function(_, args)
+    local coldef = "</span>"
+    local colgre = "<span color='#9BCD32'>"
+    local colyel = "<span color='#FFBE46'>"
+    local colred = "<span color='#FF4B4B'>"
+
+    local phys = nil
+    if args[1] < 33 then
+        phys = colgre .. args[1] .. coldef
+    elseif args[1] < 66 then
+        phys = colyel .. args[1] .. coldef
+    else
+        phys = colred .. args[1] .. coldef
+    end
+
+    local swap = nil
+    if args[5] < 33 then
+        swap = colgre .. args[5] .. coldef
+    elseif args[5] < 66 then
+        swap = colyel .. args[5] .. coldef
+    else
+        swap = colred .. args[5] .. coldef
+    end
+
+    return "(phys% ["
+        .. phys
+        .. "] :: ["
+        .. args[2]
+        .. " / "
+        .. args[3]
+        .. "] Mib) (swap% ["
+        .. swap
+        .. "] :: ["
+        .. args[6]
+        .. " / "
+        .. args[7]
+        .. "] Mib) "
+end, 10)
 
 -- Add mouse support to tags
 local taglist_buttons = gears.table.join(
@@ -247,15 +300,13 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag(
         {
-            "dev",
             "term",
             "www",
-            "mp3",
-            "vlc",
-            "irc",
-            "vm",
+            "music",
+            "video",
+            "social",
+            "virtual",
             "misc",
-            "pwd",
         },
         s,
         awful.layout.layouts[1] -- Set starting layout as `tile`
@@ -304,10 +355,10 @@ awful.screen.connect_for_each_screen(function(s)
             launcher,
             s.taglist,
         },
-        wibox.container.margin(s.tasklist, 0, 5), -- Middle widget
+        s.tasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            wibox.container.margin(wibox.widget.systray(), 5, 5),
             mem_widget,
             cpu.widget,
             netstate.widget,
@@ -377,7 +428,7 @@ local globalkeys = gears.table.join(
 
     -- Standard program
     awful.key({ modkey }, "Return", function()
-        awful.spawn(terminal)
+        awful.spawn(terminal_attached)
     end, { description = "open a terminal", group = "launcher" }),
 
     awful.key(
@@ -717,22 +768,28 @@ awful.rules.rules = {
         properties = { screen = 1, tag = "www" },
     },
 
+    -- Set Google Chrome to always map on the tag named "www" on screen 1.
+    {
+        rule = { class = "Google-chrome" },
+        properties = { screen = 1, tag = "www" },
+    },
+
     -- Set Spotify to always map on the tag named "mp3" on screen 1.
     {
         rule = { class = "Spotify" },
-        properties = { screen = 1, tag = "mp3" },
+        properties = { screen = 1, tag = "music" },
     },
 
     -- Set VLC to always map on the tag named "vlc" on screen 1.
     {
         rule = { class = "vlc" },
-        properties = { screen = 1, tag = "vlc" },
+        properties = { screen = 1, tag = "video" },
     },
 
     -- Set Discord to always map on the tag named "irc" on screen 1.
     {
         rule = { class = "discord" },
-        properties = { screen = 1, tag = "irc" },
+        properties = { screen = 1, tag = "social" },
     },
 }
 
