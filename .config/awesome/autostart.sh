@@ -2,14 +2,14 @@
 
 # Run and background a program if it's not already running
 run() {
-  if ! pgrep -xf "$*"; then
+  if ! pgrep -xf "$*" > /dev/null; then
     $@ &
   fi
 }
 
 # Run and background a program if it's not already running (less strict)
 run_relaxed() {
-  if ! pgrep -f $1; then
+  if ! pgrep -f $1 > /dev/null; then
     shift
     $@ &
   fi
