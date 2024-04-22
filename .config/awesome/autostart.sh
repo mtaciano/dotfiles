@@ -2,7 +2,15 @@
 
 # Run and background a program if it's not already running
 run() {
-  if ! pgrep -x $1; then
+  if ! pgrep -xf "$*"; then
+    $@ &
+  fi
+}
+
+# Run and background a program if it's not already running (less strict)
+run_relaxed() {
+  if ! pgrep -f $1; then
+    shift
     $@ &
   fi
 }
@@ -11,10 +19,10 @@ run() {
 run /usr/libexec/polkit-gnome-authentication-agent-1
 
 # Start gpg-agent
-run gpgconf --launch gpg-agent
+run_relaxed gpg-agent gpgconf --launch gpg-agent
 
 # Make audio work
-run gentoo-pipewire-launcher
+run_relaxed pipewire gentoo-pipewire-launcher
 
 # Compositor
 run picom --daemon
@@ -23,7 +31,7 @@ run picom --daemon
 run unclutter
 
 # Volume % notification
-run volctl
+run_relaxed volctl volctl
 
 # Input method
 run fcitx5 -d
@@ -38,7 +46,7 @@ run gammastep
 run ~/.config/awesome/tmux.sh
 
 # Start the terminal and attach to the tmux server
-run wezterm start tmux attach
+run_relaxed wezterm wezterm start tmux attach
 
 # Browser
-run firefox-bin
+run_relaxed firefox-bin firefox-bin
