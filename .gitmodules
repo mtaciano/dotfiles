@@ -4,3 +4,6 @@
 [submodule ".config/awesome/icon_customizer"]
 	path = .config/awesome/icon_customizer
 	url = git@github.com:intrntbrn/icon_customizer.git
+[submodule ".config/awesome/vicious"]
+	path = .config/awesome/vicious
+	url = git@github.com:vicious-widgets/vicious.git

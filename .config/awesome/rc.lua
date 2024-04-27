@@ -306,6 +306,7 @@ awful.screen.connect_for_each_screen(function(s)
             "video",
             "social",
             "virtual",
+            "torrent",
             "misc",
         },
         s,
@@ -772,6 +773,12 @@ awful.rules.rules = {
     {
         rule = { class = "Google-chrome" },
         properties = { screen = 1, tag = "www" },
+    },
+
+    -- Set qBittorrent to always map on the tag named "www" on screen 1.
+    {
+        rule = { class = "qBittorrent" },
+        properties = { screen = 1, tag = "torrent" },
     },
 
     -- Set Spotify to always map on the tag named "mp3" on screen 1.
