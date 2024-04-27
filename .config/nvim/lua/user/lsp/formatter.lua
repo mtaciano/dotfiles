@@ -39,5 +39,11 @@ require("formatter").setup({
         c = {
             require("formatter.filetypes.c").clangformat,
         },
+        cpp = {
+            require("formatter.filetypes.cpp").clangformat,
+        },
+        cmake = {
+            require("formatter.filetypes.cmake").cmakeformat,
+        },
     },
 })

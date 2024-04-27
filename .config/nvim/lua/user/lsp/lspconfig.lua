@@ -214,3 +214,7 @@ require("lspconfig").clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+require("lspconfig").cmake.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
