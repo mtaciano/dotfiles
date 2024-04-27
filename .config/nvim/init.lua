@@ -21,6 +21,7 @@ require("user.lsp.signature")
 require("user.lsp.mason")
 require("user.lsp.lspconfig")
 require("user.lsp.formatter")
+require("user.lsp.dap")
 
 -- User configuration
 require("user.statusline")

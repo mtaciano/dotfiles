@@ -1,14 +1,22 @@
 local capabilities = require("user.lsp.completion")
 local builtin = require("telescope.builtin")
 local signature = require("lsp_signature")
+local dap = require("dap")
 local keymap = vim.keymap
 
 local on_attach = function(client, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+    keymap.set("n", "<Leader>dc", dap.continue, { desc = "Continue Debugging" })
     keymap.set(
         "n",
-        "<Leader>ldc",
+        "<Leader>db",
+        dap.toggle_breakpoint,
+        { desc = "Toggle Breakpoint" }
+    )
+    keymap.set(
+        "n",
+        "<Leader>dec",
         vim.lsp.buf.declaration,
         { desc = "Go to Declaration" }
     )

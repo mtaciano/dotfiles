@@ -24,8 +24,14 @@ require("lazy").setup({
         lazy = false, -- It's not recommended to lazy load mason
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
+            "neovim/nvim-lspconfig", -- LSP Support
+            "jay-babu/mason-nvim-dap.nvim",
+            "mfussenegger/nvim-dap", -- DAP Support
         },
+    },
+    { -- DAP UI
+        "rcarriga/nvim-dap-ui",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     },
     { "mhartington/formatter.nvim" }, -- Formatting
     { "brenoprata10/nvim-highlight-colors" }, -- Show highlight colors
