@@ -49,6 +49,18 @@ require("lazy").setup({
         },
     },
     { "folke/neodev.nvim", opts = {} }, -- Neovim Development
+    { -- Markdown preview in the browser
+        "iamcco/markdown-preview.nvim",
+        cmd = {
+            "MarkdownPreviewToggle",
+            "MarkdownPreview",
+            "MarkdownPreviewStop",
+        },
+        ft = { "markdown" },
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
     { -- File explorer
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
