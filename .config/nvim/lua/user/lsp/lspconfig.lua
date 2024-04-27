@@ -22,13 +22,13 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>ldf",
+        "<Leader>def",
         vim.lsp.buf.definition,
         { desc = "Go to Definition" }
     )
     keymap.set(
         "n",
-        "<Leader>li",
+        "<Leader>lig",
         vim.lsp.buf.implementation,
         { desc = "Go to Implementation" }
     )
@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
         { desc = "Show function signature" }
     )
     keymap.set("n", "<Leader>lh", function()
-        vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), bufnr)
     end, { desc = "Toggle inlay hints" })
     keymap.set(
         "n",
@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>ltd",
+        "<Leader>td",
         vim.lsp.buf.type_definition,
         { desc = "Show type definition" }
     )
@@ -73,61 +73,61 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>flr",
+        "<Leader>lr",
         builtin.lsp_references,
         { desc = "Show References" }
     )
     keymap.set(
         "n",
-        "<Leader>flci",
+        "<Leader>lci",
         builtin.lsp_incoming_calls,
         { desc = "Show incomming calls to this function" }
     )
     keymap.set(
         "n",
-        "<Leader>flco",
+        "<Leader>lco",
         builtin.lsp_outgoing_calls,
         { desc = "Show outgoing calls to this function" }
     )
     keymap.set(
         "n",
-        "<Leader>flsd",
+        "<Leader>lds",
         builtin.lsp_document_symbols,
         { desc = "Show document symbols" }
     )
     keymap.set(
         "n",
-        "<Leader>flsw",
+        "<Leader>lws",
         builtin.lsp_workspace_symbols,
         { desc = "Show workspace symbols" }
     )
     keymap.set(
         "n",
-        "<Leader>flds",
+        "<Leader>ldi",
         builtin.diagnostics,
         { desc = "Show diagnostics" }
     )
     keymap.set(
         "n",
-        "<Leader>fldo",
+        "<Leader>ldo",
         vim.diagnostic.open_float,
         { desc = "Show whole diagnostic" }
     )
     keymap.set(
         "n",
-        "<Leader>fli",
+        "<Leader>lis",
         builtin.lsp_implementations,
         { desc = "Show implementations" }
     )
     keymap.set(
         "n",
-        "<Leader>flf",
+        "<Leader>lde",
         builtin.lsp_definitions,
         { desc = "Show definitions" }
     )
     keymap.set(
         "n",
-        "<Leader>fltd",
+        "<Leader>lty",
         builtin.lsp_type_definitions,
         { desc = "Show type definitions" }
     )

@@ -54,16 +54,15 @@ keymap.set(
     { desc = "Center the cursor when using <C-u>" }
 )
 keymap.set("n", "n", "nzz", { desc = "Center search results" })
-keymap.set("", "H", "^", { desc = "Go to the first non-blank char"})
-keymap.set("", "L", "$", { desc = "Go to the last non-blank char"})
-keymap.set("n", "<Leader>ff", builtin.find_files, { desc = "File Picker" })
-keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Manage Buffers" })
+keymap.set("", "H", "^", { desc = "Go to the first non-blank char" })
+keymap.set("", "L", "$", { desc = "Go to the last non-blank char" })
 keymap.set(
     "n",
-    "<Leader>fgf",
-    builtin.git_files,
+    "<Leader>ff",
+    builtin.find_files,
     { desc = "File Picker (respects .gitignore)" }
 )
-keymap.set("n", "<Leader>flg", builtin.live_grep, { desc = "Grep CWD" })
-keymap.set("n", "<Leader>fm", builtin.man_pages, { desc = "Man Pages" })
+keymap.set("n", "<Leader>b", builtin.buffers, { desc = "Manage Buffers" })
+keymap.set("n", "<Leader>fg", builtin.live_grep, { desc = "Grep CWD" })
+keymap.set("n", "<Leader>fm", builtin.marks, { desc = "List Marks" })
 keymap.set("i", "<C-H>", "<C-w>", { desc = "Delete word" })
