@@ -17,6 +17,7 @@ require("user.telescope")
 require("user.highlights")
 
 -- LSP
+require("user.lsp.neodev") -- Has to load before nvim-lspconfig
 require("user.lsp.signature")
 require("user.lsp.mason")
 require("user.lsp.lspconfig")

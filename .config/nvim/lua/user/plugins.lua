@@ -48,6 +48,7 @@ require("lazy").setup({
             "ray-x/lsp_signature.nvim",
         },
     },
+    { "folke/neodev.nvim", opts = {} }, -- Neovim Development
     { -- File explorer
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
