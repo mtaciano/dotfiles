@@ -25,7 +25,3 @@ set __fish_git_prompt_char_upstream_prefix ""
 # Global Variables
 set -x GPG_TTY $(tty)
 set -x FZF_DEFAULT_OPTS --cycle
-
-# Tabtab source for packages
-# Uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
