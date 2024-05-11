@@ -176,6 +176,7 @@ local cpu = lain.widget.cpu({
 
 -- Network state checker
 local netstate = lain.widget.net({
+    iface = "eno1", -- Interface to monitor
     settings = function()
         local font = "Terminus 8.5"
         local net_state = nil
@@ -716,6 +717,9 @@ awful.rules.rules = {
                 "Nemo",
                 "baobab",
                 "gwenview",
+                "Mousepad",
+                "digikam",
+                "showfoto",
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -741,7 +745,15 @@ awful.rules.rules = {
     -- Add titlebars to certain clients
     {
         rule_any = {
-            class = { "Nemo", "baobab", "gwenview", "Navigator" },
+            class = {
+                "Nemo",
+                "baobab",
+                "gwenview",
+                "Navigator",
+                "Mousepad",
+                "digikam",
+                "showfoto",
+            },
         },
         properties = { titlebars_enabled = true },
     },
@@ -775,28 +787,34 @@ awful.rules.rules = {
         properties = { screen = 1, tag = "www" },
     },
 
-    -- Set qBittorrent to always map on the tag named "www" on screen 1.
+    -- Set qBittorrent to always map on the tag named "torrent" on screen 1.
     {
         rule = { class = "qBittorrent" },
         properties = { screen = 1, tag = "torrent" },
     },
 
-    -- Set Spotify to always map on the tag named "mp3" on screen 1.
+    -- Set Spotify to always map on the tag named "music" on screen 1.
     {
         rule = { class = "Spotify" },
         properties = { screen = 1, tag = "music" },
     },
 
-    -- Set VLC to always map on the tag named "vlc" on screen 1.
+    -- Set VLC to always map on the tag named "video" on screen 1.
     {
         rule = { class = "vlc" },
         properties = { screen = 1, tag = "video" },
     },
 
-    -- Set Discord to always map on the tag named "irc" on screen 1.
+    -- Set Discord to always map on the tag named "social" on screen 1.
     {
         rule = { class = "discord" },
         properties = { screen = 1, tag = "social" },
+    },
+
+    -- Set VirtualBox to always map on the tag named "virtual" on screen 1.
+    {
+        rule = { class = "Virt-manager" },
+        properties = { screen = 1, tag = "virtual" },
     },
 }
 
