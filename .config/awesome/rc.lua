@@ -793,6 +793,12 @@ awful.rules.rules = {
         properties = { screen = 1, tag = "torrent" },
     },
 
+    -- Set Transmission to always map on the tag named "torrent" on screen 1.
+    {
+        rule = { class = "transmission-gtk" },
+        properties = { screen = 1, tag = "torrent" },
+    },
+
     -- Set Spotify to always map on the tag named "music" on screen 1.
     {
         rule = { class = "Spotify" },
