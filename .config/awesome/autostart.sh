@@ -40,7 +40,7 @@ run fcitx5 -d
 run flameshot
 
 # Dim the screen based on the time of the day
-run gammastep
+run_relaxed gammastep-indicator gammastep-indicator
 
 # Start a tmux server
 run ~/.config/awesome/tmux.sh
