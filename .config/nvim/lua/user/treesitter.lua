@@ -1,7 +1,11 @@
 local languages = {
     "bash",
     "c",
+    "cpp",
+    "doxygen",
+    "cmake",
     "comment",
+    "css",
     "fish",
     "git_config",
     "gitcommit",
@@ -14,6 +18,13 @@ local languages = {
     "rust",
     "toml",
     "typescript",
+    "markdown",
+    "tmux",
+    "toml",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
 }
 
 require("nvim-treesitter.configs").setup({
