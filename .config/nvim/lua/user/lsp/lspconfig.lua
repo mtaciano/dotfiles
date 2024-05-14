@@ -61,7 +61,7 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>lr",
+        "<Leader>lrn",
         vim.lsp.buf.rename,
         { desc = "Rename occurrences" }
     )
@@ -73,7 +73,7 @@ local on_attach = function(client, bufnr)
     )
     keymap.set(
         "n",
-        "<Leader>lr",
+        "<Leader>lrf",
         builtin.lsp_references,
         { desc = "Show References" }
     )
