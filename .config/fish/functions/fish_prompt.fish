@@ -26,9 +26,10 @@ function fish_prompt --description 'Write out the prompt'
     set -l status_color (set_color $fish_color_status)
     set -l statusb_color (set_color $bold_flag $fish_color_status)
     set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
-    set -l pwd (basename $PWD)
-    if test -z (fish_vcs_prompt)
-        set pwd (prompt_pwd)
+    set -l pwd (prompt_pwd)
+    if ! test -z (fish_vcs_prompt)
+        set -l basename (basename (git rev-parse --show-toplevel))
+        set pwd (echo $PWD | sed -n "s/^.*$basename/$basename/p")
     end
 
     echo -n -s (set_color brblack) '('(date "+%H:%M")') ' (set_color bryellow)(whoami) $normal '@'(set_color blue) (prompt_hostname) (set_color brblack)':' (set_color $color_cwd) $pwd $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
