@@ -10,18 +10,18 @@ g.mapleader = " " -- Then we bind it to the leader
 -- Set options
 opt.mouse = "a" -- Enable mouse support
 opt.completeopt = "menu,menuone,noselect" -- Completion modes
-opt.cursorline = true -- Hightlight the line of the cursor
+opt.cursorline = true -- Highlight the line of the cursor
 opt.clipboard = "unnamedplus" -- Copy/paste to system clipboard
 opt.number = true -- Show line number
 opt.relativenumber = true -- Make the line number relative
 opt.showmatch = true -- Highlight matching parenthesis
-opt.colorcolumn = "80" -- Line lenght marker at 80 columns
+opt.colorcolumn = "80" -- Line length marker at 80 columns
 opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.background = "dark" -- Use dark theme
 opt.expandtab = true -- Use spaces instead of tabs
 opt.shiftwidth = 4 -- Shift 4 spaces when tab
 opt.tabstop = 4 -- 1 tab == 4 spaces
-opt.smartindent = true -- Autoindent new lines
+opt.smartindent = true -- Auto indent new lines
 opt.list = true -- Show hidden characters
 opt.listchars = { -- What characters to show
     eol = "↓",

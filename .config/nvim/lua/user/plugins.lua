@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup({
-    { -- Colorscheme
+    { -- Color scheme
         "ellisonleao/gruvbox.nvim",
         lazy = false, -- Make sure we load this during startup
         priority = 1000, -- Load this before all the other start plugins
@@ -73,7 +73,7 @@ require("lazy").setup({
         },
     },
     { "tpope/vim-fugitive" }, -- Git wrapper
-    { "echasnovski/mini.nvim" }, -- Statusline
+    { "echasnovski/mini.nvim" }, -- Status line
     { -- Keybindings menu
         "folke/which-key.nvim",
         event = "VeryLazy",

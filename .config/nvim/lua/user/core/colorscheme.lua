@@ -1,4 +1,4 @@
--- setup must be called before loading the colorscheme
+-- setup must be called before loading the color scheme
 -- Default options:
 require("gruvbox").setup({
     undercurl = true,
@@ -15,7 +15,7 @@ require("gruvbox").setup({
     invert_signs = false,
     invert_tabline = false,
     invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
+    inverse = true, -- invert background for search, diffs, status lines and errors
     contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     overrides = {},
