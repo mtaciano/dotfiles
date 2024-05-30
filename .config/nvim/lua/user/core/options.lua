@@ -16,6 +16,7 @@ opt.number = true -- Show line number
 opt.relativenumber = true -- Make the line number relative
 opt.showmatch = true -- Highlight matching parenthesis
 opt.colorcolumn = "80" -- Line length marker at 80 columns
+opt.wrap = false -- Do not wrap lines
 opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.background = "dark" -- Use dark theme
 opt.expandtab = true -- Use spaces instead of tabs
