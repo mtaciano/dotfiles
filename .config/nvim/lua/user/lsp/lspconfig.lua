@@ -185,9 +185,24 @@ require("lspconfig").rust_analyzer.setup({
 require("lspconfig").eslint.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    settings = {
+        experimental = { useFlatConfig = false },
+    },
 })
 -- Typescript
 require("lspconfig").tsserver.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Svelte
+require("lspconfig").svelte.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- CSS
+require("lspconfig").cssls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })

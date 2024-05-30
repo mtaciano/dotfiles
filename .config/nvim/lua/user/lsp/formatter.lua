@@ -27,6 +27,9 @@ require("formatter").setup({
         css = {
             require("formatter.filetypes.css").prettier,
         },
+        scss = {
+            require("formatter.filetypes.css").prettier,
+        },
         json = {
             require("formatter.filetypes.json").prettier,
         },
@@ -44,6 +47,9 @@ require("formatter").setup({
         },
         cmake = {
             require("formatter.filetypes.cmake").cmakeformat,
+        },
+        svelte = {
+            require("formatter.filetypes.svelte").prettier,
         },
     },
 })
