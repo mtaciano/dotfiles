@@ -45,7 +45,10 @@ local on_attach = function(client, bufnr)
         { desc = "Show function signature" }
     )
     keymap.set("n", "<Leader>lh", function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), bufnr)
+        vim.lsp.inlay_hint.enable(
+            not vim.lsp.inlay_hint.is_enabled({ bufnr }),
+            { bufnr }
+        )
     end, { desc = "Toggle inlay hints" })
     keymap.set(
         "n",
@@ -203,6 +206,12 @@ require("lspconfig").svelte.setup({
 
 -- CSS
 require("lspconfig").cssls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- JSON
+require("lspconfig").jsonls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
