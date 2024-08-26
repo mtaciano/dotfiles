@@ -204,6 +204,11 @@ require("lspconfig").svelte.setup({
     on_attach = on_attach,
 })
 
+-- Angular
+require("lspconfig").angularls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
 -- CSS
 require("lspconfig").cssls.setup({
     capabilities = capabilities,
