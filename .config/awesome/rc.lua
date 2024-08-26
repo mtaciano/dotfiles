@@ -787,6 +787,12 @@ awful.rules.rules = {
         properties = { screen = 1, tag = "www" },
     },
 
+    -- Set Obsidian to always map on the tag named "misc" on screen 1.
+    {
+        rule = { class = "obsidian" },
+        properties = { screen = 1, tag = "misc" },
+    },
+
     -- Set qBittorrent to always map on the tag named "torrent" on screen 1.
     {
         rule = { class = "qBittorrent" },
