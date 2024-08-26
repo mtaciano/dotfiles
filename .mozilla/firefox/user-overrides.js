@@ -1,7 +1,7 @@
 /******
  *    name: mtaciano user-overrides.js
- *    date: 24 September 2023
- * version: 2
+ *    date: 25 August 2024
+ * version: 3
  *     url: https://github.com/mtaciano/dotfiles/user-overrides.js
  ******/
 
@@ -36,22 +36,35 @@ user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
  * [TEST] http://httpforever.com/ | http://http.rip [no upgrade] ***/
 user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 
+/** SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS | v2 migration is FF128+ ***/
+/* 2811: set/enforce what items to clear on shutdown (if 2810 is true) [SETUP-CHROME]
+ * [NOTE] If "history" is true, downloads will also be cleared ***/
+user_pref("privacy.clearOnShutdown.history", false);   // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", false); // [FF128+] [DEFAULT: true]
+/* 2812: set Session Restore to clear on shutdown (if 2810 is true) [FF34+]
+ * [NOTE] Not needed if Session Restore is not used (0102) or it is already cleared with history (2811)
+ * [NOTE] If true, this prevents resuming from crashes (also see 5008) ***/
+user_pref("privacy.clearOnShutdown.openWindows", false);
+
+/** SANITIZE SITE DATA: IGNORES "ALLOW" SITE EXCEPTIONS ***/
+/* 2820: set manual "Clear Data" items [SETUP-CHROME] [FF128+]
+ * Firefox remembers your last choices. This will reset them when you start Firefox
+ * [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data ***/
+user_pref("privacy.clearSiteData.historyFormDataAndDownloads", false);
+
+/** SANITIZE HISTORY: IGNORES "ALLOW" SITE EXCEPTIONS | clearHistory migration is FF128+ ***/
+/* 2830: set manual "Clear History" items, also via Ctrl-Shift-Del [SETUP-CHROME]
+ * Firefox remembers your last choices. This will reset them when you start Firefox
+ * [NOTE] Regardless of what you set "downloads" to, as soon as the dialog
+ * for "Clear Recent History" is opened, it is synced to the same as "history"
+ * [SETTING] Privacy & Security>History>Custom Settings>Clear History ***/
+user_pref("privacy.cpd.history", false);  // [DEFAULT: true]
+user_pref("privacy.clearHistory.historyFormDataAndDownloads", false);
+user_pref("privacy.cpd.sessions", false); // [DEFAULT: true]
+user_pref("privacy.cpd.openWindows", false); // Session Restore
+
 /* 2606: disable UITour backend so there is no chance that a remote page can use it ***/
 user_pref("browser.uitour.url", ""); // Defense-in-depth
-
-/** SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS ***/
-/* 2811: set/enforce what items to clear on shutdown (if 2810 is true) [SETUP-CHROME]
- * [NOTE] If "history" is true, downloads will also be cleared
- * [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
- * [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
-user_pref("privacy.clearOnShutdown.history", false); // [DEFAULT: true]
-
-/* 4501: enable privacy.resistFingerprinting
- * [SETUP-WEB] RFP can cause some website breakage: mainly canvas, use a site exception via the urlbar
- * RFP also has a few side effects: mainly timezone is UTC0, and websites will prefer light theme
- * [NOTE] pbmode applies if true and the original pref is false
- * [1] https://bugzilla.mozilla.org/418986 ***/
-user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 
 /* 4504: enable RFP letterboxing [FF67+]
  * Dynamically resizes the inner window by applying margins in stepped ranges [2]
@@ -76,10 +89,3 @@ user_pref("signon.rememberSignons", false);
  * [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill ***/
 user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
-
-/* 5021: disable location bar using search
- * Don't leak URL typos to a search engine, give an error message instead
- * Examples: "secretplace,com", "secretplace/com", "secretplace com", "secret place.com"
- * [NOTE] This does not affect explicit user action such as using search buttons in the
- * dropdown, or using keyword search shortcuts you configure in options (e.g. "d" for DuckDuckGo) ***/
-// user_pref("keyword.enabled", false);
