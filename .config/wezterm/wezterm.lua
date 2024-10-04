@@ -29,5 +29,5 @@ config.window_padding = {
     bottom = "0%",
 }
 
--- and finally, return the configuration to wezterm
+-- And finally, return the configuration to wezterm
 return config
