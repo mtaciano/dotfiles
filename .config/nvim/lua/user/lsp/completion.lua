@@ -40,6 +40,9 @@ cmp.setup({
         { name = "nvim_lsp_signature_help" },
     }, {
         { name = "buffer" },
+    }, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
     }),
     experimental = { ghost_text = true },
     preselect = cmp.PreselectMode.None,
