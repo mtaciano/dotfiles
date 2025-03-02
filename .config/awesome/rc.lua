@@ -720,6 +720,7 @@ awful.rules.rules = {
                 "Mousepad",
                 "digikam",
                 "showfoto",
+                "filelight",
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -753,6 +754,7 @@ awful.rules.rules = {
                 "Mousepad",
                 "digikam",
                 "showfoto",
+                "filelight",
             },
         },
         properties = { titlebars_enabled = true },
