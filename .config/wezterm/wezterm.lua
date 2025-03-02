@@ -14,7 +14,7 @@ end
 config.term = "wezterm"
 config.color_scheme = "Gruvbox dark, hard (base16)"
 config.font = wezterm.font("JetBrains Mono")
-config.harfbuzz_features = { "zero" }
+config.harfbuzz_features = { "zero", "cv12", "cv18" }
 config.use_ime = true
 config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
