@@ -7,6 +7,9 @@ require("user.treesitter")
 -- Surround
 require("user.surround")
 
+-- Leap
+require("user.leap")
+
 -- Git
 require("user.gitsigns")
 

@@ -6,7 +6,7 @@ cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            vim.snippet.expand(args.body)
         end,
     },
     window = {
@@ -36,7 +36,6 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "vsnip" }, -- For vsnip users.
         { name = "nvim_lsp_signature_help" },
     }, {
         { name = "buffer" },

@@ -42,8 +42,6 @@ require("lazy").setup({
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip",
             "hrsh7th/cmp-cmdline",
             "ray-x/lsp_signature.nvim",
         },
@@ -112,5 +110,11 @@ require("lazy").setup({
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
+    },
+    {
+        "ggandor/leap.nvim",
+        dependencies = {
+            "tpope/vim-repeat",
+        },
     },
 })

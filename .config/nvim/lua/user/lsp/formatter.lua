@@ -10,7 +10,7 @@ require("formatter").setup({
             require("formatter.filetypes.lua").stylua,
         },
         python = {
-            require("formatter.filetypes.python").black,
+            require("formatter.filetypes.python").ruff,
         },
         typescript = {
             require("formatter.filetypes.typescript").prettier,
@@ -23,6 +23,9 @@ require("formatter").setup({
         },
         javascriptreact = {
             require("formatter.filetypes.javascriptreact").prettier,
+        },
+        html = {
+            require("formatter.filetypes.html").prettier,
         },
         css = {
             require("formatter.filetypes.css").prettier,
@@ -50,6 +53,9 @@ require("formatter").setup({
         },
         svelte = {
             require("formatter.filetypes.svelte").prettier,
+        },
+        ["*"] = {
+            require("formatter.filetypes.any").remove_trailing_whitespace,
         },
     },
 })

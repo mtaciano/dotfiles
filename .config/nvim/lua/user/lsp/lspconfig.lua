@@ -192,8 +192,16 @@ require("lspconfig").eslint.setup({
         experimental = { useFlatConfig = false },
     },
 })
--- Typescript
 require("lspconfig").ts_ls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {
+        preferences = { includeCompletionsForModuleExports = false },
+    },
+})
+
+-- Prisma
+require("lspconfig").prismals.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
@@ -209,6 +217,7 @@ require("lspconfig").angularls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
 -- CSS
 require("lspconfig").cssls.setup({
     capabilities = capabilities,
@@ -217,6 +226,16 @@ require("lspconfig").cssls.setup({
 
 -- JSON
 require("lspconfig").jsonls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Docker
+require("lspconfig").dockerls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+require("lspconfig").docker_compose_language_service.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
@@ -241,7 +260,7 @@ require("lspconfig").pylsp.setup({
         },
     },
 })
-require("lspconfig").ruff_lsp.setup({
+require("lspconfig").ruff.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
