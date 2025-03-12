@@ -1,0 +1,38 @@
+* {
+  font-family: "Lexend";
+  font-size: 16px;
+  color: #f5f3f4;
+  border-radius: 8px;
+}
+
+#window {
+  background: #161a1d;
+}
+
+#input {
+  background-color: #2e3440;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+#outer-box {
+  padding: 10px;
+}
+
+#img {
+  margin-right: 6px;
+}
+
+#entry {
+  padding: 6px;
+  border-radius: 8px;
+}
+
+#entry:selected {
+  background-color: #2e3440;
+}
+
+#text {
+  margin: 2px;
+}

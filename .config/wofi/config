@@ -1,0 +1,9 @@
+hide_scroll=true
+show=drun
+term=wezterm
+allow_markup=true
+show_all=true
+allow_images=true
+location=center
+key_expand=Tab
+insensitive=true
