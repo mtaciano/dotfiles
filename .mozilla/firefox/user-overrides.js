@@ -46,11 +46,23 @@ user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", false); // [
  * [NOTE] If true, this prevents resuming from crashes (also see 5008) ***/
 user_pref("privacy.clearOnShutdown.openWindows", false);
 
+/** SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS ***/
+/* 2811: set/enforce clearOnShutdown items (if 2810 is true) [SETUP-CHROME] [FF128+] ***/
+user_pref("privacy.clearOnShutdown_v2.cache", false); // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", false); // [DEFAULT: true]
+   // user_pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT: false]
+/* 2812: set/enforce clearOnShutdown items [FF136+] ***/
+user_pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", false); // [DEFAULT: true]
+
 /** SANITIZE SITE DATA: IGNORES "ALLOW" SITE EXCEPTIONS ***/
 /* 2820: set manual "Clear Data" items [SETUP-CHROME] [FF128+]
  * Firefox remembers your last choices. This will reset them when you start Firefox
  * [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data ***/
+user_pref("privacy.clearSiteData.cache", false);
 user_pref("privacy.clearSiteData.historyFormDataAndDownloads", false);
+// user_pref("privacy.clearSiteData.siteSettings", false);
+/* 2821: set manual "Clear Data" items [FF136+] ***/
+user_pref("privacy.clearSiteData.browsingHistoryAndDownloads", false);
 
 /** SANITIZE HISTORY: IGNORES "ALLOW" SITE EXCEPTIONS | clearHistory migration is FF128+ ***/
 /* 2830: set manual "Clear History" items, also via Ctrl-Shift-Del [SETUP-CHROME]
@@ -62,6 +74,17 @@ user_pref("privacy.cpd.history", false);  // [DEFAULT: true]
 user_pref("privacy.clearHistory.historyFormDataAndDownloads", false);
 user_pref("privacy.cpd.sessions", false); // [DEFAULT: true]
 user_pref("privacy.cpd.openWindows", false); // Session Restore
+
+/** SANITIZE HISTORY: IGNORES "ALLOW" SITE EXCEPTIONS ***/
+/* 2830: set manual "Clear History" items, also via Ctrl-Shift-Del [SETUP-CHROME] [FF128+]
+ * Firefox remembers your last choices. This will reset them when you start Firefox
+ * [SETTING] Privacy & Security>History>Custom Settings>Clear History ***/
+user_pref("privacy.clearHistory.cache", false); // [DEFAULT: true]
+user_pref("privacy.clearHistory.cookiesAndStorage", false);
+user_pref("privacy.clearHistory.historyFormDataAndDownloads", false); // [DEFAULT: true]
+// user_pref("privacy.clearHistory.siteSettings", false); // [DEFAULT: false]
+/* 2831: set manual "Clear History" items [FF136+] ***/
+user_pref("privacy.clearHistory.browsingHistoryAndDownloads", false); // [DEFAULT: true]
 
 /* 2606: disable UITour backend so there is no chance that a remote page can use it ***/
 user_pref("browser.uitour.url", ""); // Defense-in-depth
@@ -89,3 +112,6 @@ user_pref("signon.rememberSignons", false);
  * [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill ***/
 user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
+
+/* Custom prefs */
+user_pref("middlemouse.paste", false);
