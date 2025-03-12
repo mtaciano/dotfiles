@@ -1,0 +1,212 @@
+* {
+  border: none;
+  font-family: "Lexend";
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 0;
+}
+
+window#waybar {
+  background: #161a1d;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+tooltip {
+  padding: 10px;
+  background-color: #2e3440;
+}
+
+#clock,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#wireplumber,
+#idle_inhibitor,
+#custom-power,
+#custom-quit,
+#custom-lock,
+#custom-reboot {
+  margin: 6px 3px 8px 3px;
+  padding: 5px 8px;
+  transition-property: color, background-color;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}
+
+#workspaces {
+  background-color: #2e3440;
+  margin: 6px 0px 8px 10px;
+}
+
+#workspaces button {
+  padding: 2px 8px 1px 8px;
+  margin: 2px;
+  color: #999999;
+  transition-property: color, background-color;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}
+
+#workspaces button.active {
+  color: #f5f3f4;
+  background-color: rgba(245, 243, 244, 0.1);
+  border-radius: 8px;
+}
+
+#workspaces button:hover {
+  text-shadow: none;
+  background: inherit;
+  background-color: rgba(245, 243, 244, 0.1);
+}
+
+#workspaces button.special {
+  color: rgba(253, 253, 150, 0.7);
+}
+
+#workspaces button.special.active {
+  color: #fdfd96;
+  background-color: rgba(253, 253, 150, 0.1);
+}
+
+@keyframes blink-urgent {
+  0% {
+    background-color: rgba(255, 105, 97, 0.3);
+  }
+  100% {
+    background-color: rgba(255, 105, 97, 0.75);
+  }
+}
+
+#workspaces button.urgent {
+  color: #f5f3f4;
+  animation: blink-urgent 1s ease infinite;
+  animation-direction: alternate;
+}
+
+#window {
+  margin: 6px 3px 8px 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: #f5f3f4;
+  background-color: #2e3440;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#clock,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#wireplumber,
+#idle_inhibitor,
+#custom-power,
+#custom-quit,
+#custom-lock,
+#custom-reboot {
+  color: #f5f3f4;
+  background-color: #2e3440;
+}
+
+#network.deactivated {
+  color: #ff6961;
+}
+
+#wireplumber.muted {
+  padding-top: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: #ff6961;
+}
+
+#idle_inhibitor {
+  padding-top: 7px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+#idle_inhibitor.activated {
+  color: #0b090a;
+  background-color: #f5f3f4;
+}
+
+#custom-quit {
+  color: #999999;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0px;
+  border-radius: 8px 0px 0px 8px;
+  border-right-style: solid;
+  border-right-color: rgba(245, 243, 244, 0.1);
+  border-right-width: 1px;
+}
+
+#custom-lock {
+  color: #999999;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border-radius: 0;
+  border-left-style: solid;
+  border-left-color: rgba(245, 243, 244, 0.1);
+  border-left-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(245, 243, 244, 0.1);
+  border-right-width: 1px;
+}
+
+#custom-reboot {
+  color: #999999;
+  padding-top: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+  border-left-style: solid;
+  border-left-color: rgba(245, 243, 244, 0.1);
+  border-left-width: 1px;
+}
+
+#custom-reboot:hover,
+#custom-quit:hover,
+#custom-lock:hover {
+  color: #f5f3f4;
+  background: inherit;
+  background-color: #414752;
+}
+
+#custom-power {
+  padding-top: 7px;
+  padding-left: 11px;
+  padding-right: 11px;
+  margin-right: 10px;
+  color: #ff6961;
+}
+
+#custom-power:hover {
+  background-color: rgba(255, 105, 97, 0.3);
+}
+
+#cpu.normal,
+#memory.normal {
+  color: #a8d38d;
+}
+
+#cpu.warning,
+#memory.warning {
+  color: #ffff66;
+}
+
+#cpu.critical,
+#memory.critical {
+  color: #ff6961;
+}
