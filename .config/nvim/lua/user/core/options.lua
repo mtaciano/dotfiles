@@ -30,6 +30,7 @@ opt.listchars = { -- What characters to show
     space = "·",
     trail = "!",
 }
+opt.undofile = true -- Persistent undo operations
 opt.matchpairs:append({ "<:>" }) -- Add angle brackets to matching pairs
 opt.timeout = true -- Wait for a sequence to complete
 opt.timeoutlen = 1000 -- Time in ms to wait for a mapped sequence to complete
@@ -37,7 +38,7 @@ opt.scrolloff = 4 -- Number of lines to keep above and below the cursor
 -- Check word spelling in comments and strings, I enable it only when I'm
 -- writing documentation since it has a lot of false positives
 opt.spell = false
-opt.spelllang = "en,pt_br" -- What languages to check the spelling
+opt.spelllang = "en_us,pt_br" -- What languages to check the spelling
 
 -- Keymaps
 keymap.set(
@@ -70,4 +71,4 @@ keymap.set(
 keymap.set("n", "<Leader>b", builtin.buffers, { desc = "Manage Buffers" })
 keymap.set("n", "<Leader>fg", builtin.live_grep, { desc = "Grep CWD" })
 keymap.set("n", "<Leader>fm", builtin.marks, { desc = "List Marks" })
-keymap.set("i", "<C-H>", "<C-w>", { desc = "Delete word" })
+keymap.set("!", "<C-H>", "<C-w>", { desc = "Delete word" })

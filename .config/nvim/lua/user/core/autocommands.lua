@@ -33,6 +33,16 @@ autocmd("Filetype", {
     command = "set colorcolumn=88",
 })
 
+-- Spell-check Markdown files and Git Commit Messages
+autocmd("Filetype", {
+    pattern = { "markdown" },
+    command = "setlocal spell",
+})
+autocmd("Filetype", {
+    pattern = { "gitcommit" },
+    command = "setlocal spell",
+})
+
 -- Close Netrw when selecting a file
 autocmd("Filetype", {
     pattern = { "netrw" },
