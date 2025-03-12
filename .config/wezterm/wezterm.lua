@@ -12,6 +12,7 @@ end
 
 -- This is where you actually apply your config choices
 config.term = "wezterm"
+config.enable_wayland = false
 config.color_scheme = "Gruvbox dark, hard (base16)"
 config.font = wezterm.font("JetBrains Mono")
 config.harfbuzz_features = { "zero", "cv12", "cv18" }
@@ -23,8 +24,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "EaseOut"
 config.window_padding = {
-    left = "0.25%",
-    right = "0.25%",
+    left = "0.30%",
+    right = "0.10%",
     top = "0.5%",
     bottom = "0%",
 }
