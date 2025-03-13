@@ -124,7 +124,7 @@
   "custom/lock": {
     "format": "\uf456",
     "tooltip": false,
-    "on-click": "hyprlock",
+    "on-click": "loginctl lock-session",
   },
   "custom/reboot": {
     "format": "\uead2",
@@ -134,6 +134,6 @@
   "custom/power": {
     "format": "\uf011",
     "tooltip": false,
-    "on-click": "loginctl shutdown",
+    "on-click": "loginctl poweroff",
   },
 }
