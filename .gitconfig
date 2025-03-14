@@ -1,0 +1,40 @@
+[core]
+	editor = nvim
+	pager = delta
+	autocrlf = input
+	safecrlf = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	features = decorations
+	line-numbers = true
+
+[merge]
+	conflictstyle = diff3
+	tool = nvim -d
+
+[pull]
+	ff = only
+
+[diff]
+	colorMoved = default
+
+[user]
+	name = Miguel Taciano
+	email = contact@mtaciano.com
+	signingkey = F059B8F3B9AE19D4
+
+[commit]
+	gpgsign = true
+
+[init]
+	defaultBranch = main
+
+[ui "color"]
+	ui = always
+
+[color]
+	ui = true
