@@ -12,6 +12,11 @@ end
 
 -- This is where you actually apply your config choices
 config.term = "wezterm"
+config.default_prog = {
+    "sh",
+    "-c",
+    "~/.config/wezterm/autostart.sh",
+}
 config.enable_wayland = false
 config.color_scheme = "Gruvbox dark, hard (base16)"
 config.font = wezterm.font("JetBrains Mono")
