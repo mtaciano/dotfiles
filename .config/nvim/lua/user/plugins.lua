@@ -33,8 +33,11 @@ require("lazy").setup({
         "rcarriga/nvim-dap-ui",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     },
-    { "mhartington/formatter.nvim" }, -- Formatting
-    { "brenoprata10/nvim-highlight-colors" }, -- Show highlight colors
+    { -- Formatting
+        "stevearc/conform.nvim",
+        opts = {},
+    },
+    { "norcalli/nvim-colorizer.lua" }, -- Show highlight colors
     { -- Code completion
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -53,11 +56,8 @@ require("lazy").setup({
             library = {
                 -- See the configuration section for more details
                 -- Load luvit types when the `vim.uv` word is found
-                { path = "luvit-meta/library", words = { "vim%.uv" } },
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
             },
-        },
-        dependencies = {
-            { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
         },
     },
     { -- Markdown preview in the browser

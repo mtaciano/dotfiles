@@ -146,15 +146,6 @@ require("lspconfig").lua_ls.setup({
                 -- Tell the language server which version of Lua you're using
                 version = "LuaJIT",
             },
-            diagnostics = {
-                -- Get the language server to recognize undefined globals
-                globals = { "vim" },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
             -- Do not send telemetry data
             telemetry = {
                 enable = false,
@@ -212,8 +203,8 @@ require("lspconfig").svelte.setup({
     on_attach = on_attach,
 })
 
--- Angular
-require("lspconfig").angularls.setup({
+-- Typst
+require("lspconfig").tinymist.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
@@ -247,19 +238,6 @@ require("lspconfig").tailwindcss.setup({
 })
 
 -- Python
-require("lspconfig").pylsp.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = { enabled = false },
-                pyflakes = { enabled = false },
-                pylint = { enabled = false },
-            },
-        },
-    },
-})
 require("lspconfig").ruff.setup({
     capabilities = capabilities,
     on_attach = on_attach,

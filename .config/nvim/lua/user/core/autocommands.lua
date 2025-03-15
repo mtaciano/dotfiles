@@ -17,12 +17,6 @@ autocmd("TextYankPost", {
 --     command = "set fo-=c fo-=r fo-=o",
 -- })
 
--- Always remove trailing whitespace
-autocmd("BufWritePre", {
-    pattern = { "*" },
-    command = [[%s/\s\+$//e]],
-})
-
 -- Set colorcolumn for some languages
 autocmd("Filetype", {
     pattern = { "rust" },
@@ -49,10 +43,12 @@ autocmd("Filetype", {
     command = "setlocal bufhidden=wipe",
 })
 
--- Format on save
-autocmd("BufWritePost", {
-    pattern = { "*" },
-    command = "FormatWrite",
+-- Format buffer
+autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf})
+    end,
 })
 
 -- Keep the cursor style when exiting
