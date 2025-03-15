@@ -83,6 +83,15 @@ require("lazy").setup({
             },
         },
     },
+    { -- Text objects for motions (like if and af)
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            {
+                "nvim-treesitter/nvim-treesitter",
+                build = ":TSUpdate",
+            },
+        },
+    },
     { -- File browser
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",

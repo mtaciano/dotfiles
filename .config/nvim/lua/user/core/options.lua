@@ -1,6 +1,7 @@
 local g = vim.g -- Global variables
 local opt = vim.opt -- Set options
 local keymap = vim.keymap -- Keymap options
+local cmd = vim.cmd -- Commands
 local builtin = require("telescope.builtin")
 
 -- Global options
@@ -39,6 +40,9 @@ opt.scrolloff = 4 -- Number of lines to keep above and below the cursor
 -- writing documentation since it has a lot of false positives
 opt.spell = false
 opt.spelllang = "en_us,pt_br" -- What languages to check the spelling
+
+-- Commands
+cmd.syntax("off")
 
 -- Keymaps
 keymap.set(
