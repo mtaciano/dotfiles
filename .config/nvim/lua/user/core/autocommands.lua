@@ -27,7 +27,7 @@ autocmd("Filetype", {
     command = "set colorcolumn=88",
 })
 
--- Spell-check Markdown files and Git Commit Messages
+-- Spell-check Markdown files, Git Commit Messages and Typst documents
 autocmd("Filetype", {
     pattern = { "markdown" },
     command = "setlocal spell",
@@ -35,6 +35,16 @@ autocmd("Filetype", {
 autocmd("Filetype", {
     pattern = { "gitcommit" },
     command = "setlocal spell",
+})
+autocmd("Filetype", {
+    pattern = { "typst" },
+    command = "setlocal spell",
+})
+
+-- Wrap lines when writing a typst document
+autocmd("Filetype", {
+    pattern = { "typst" },
+    command = "set wrap",
 })
 
 -- Close Netrw when selecting a file
@@ -47,7 +57,7 @@ autocmd("Filetype", {
 autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
-        require("conform").format({ bufnr = args.buf})
+        require("conform").format({ bufnr = args.buf })
     end,
 })
 

@@ -18,7 +18,7 @@ require("conform").setup({
         javascript = { "prettierd" },
         javascriptreact = { "prettierd" },
         svelte = { "prettierd" },
-        typst = { command = "tinymist" },
+        typst = { "typstyle", lsp_format = "prefer" },
         fish = { "fish_indent" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.

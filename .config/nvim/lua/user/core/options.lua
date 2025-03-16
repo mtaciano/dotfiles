@@ -35,7 +35,7 @@ opt.undofile = true -- Persistent undo operations
 opt.matchpairs:append({ "<:>" }) -- Add angle brackets to matching pairs
 opt.timeout = true -- Wait for a sequence to complete
 opt.timeoutlen = 1000 -- Time in ms to wait for a mapped sequence to complete
-opt.scrolloff = 4 -- Number of lines to keep above and below the cursor
+opt.scrolloff = 2 -- Number of lines to keep above and below the cursor
 -- Check word spelling in comments and strings, I enable it only when I'm
 -- writing documentation since it has a lot of false positives
 opt.spell = false
