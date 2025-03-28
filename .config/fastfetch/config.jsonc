@@ -19,7 +19,7 @@
     "cpu",
     "gpu",
     "memory",
-    "disk",
+    "zpool",
     "separator",
     "break",
   ],
