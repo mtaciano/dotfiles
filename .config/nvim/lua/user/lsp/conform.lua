@@ -20,10 +20,12 @@ require("conform").setup({
         svelte = { "prettierd" },
         typst = { "typstyle", lsp_format = "prefer" },
         fish = { "fish_indent" },
+        toml = { "taplo" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         ["_"] = { "trim_whitespace", "trim_newlines" },
     },
+
     -- Conform will notify you when a formatter errors
     notify_on_error = true,
     -- Conform will notify you when no formatters are available for the buffer

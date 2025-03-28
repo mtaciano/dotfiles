@@ -1,6 +1,7 @@
-local capabilities = require("user.lsp.completion")
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+--local capabilities = require("user.lsp.completion")
 local builtin = require("telescope.builtin")
-local signature = require("lsp_signature")
+-- local signature = require("lsp_signature")
 local dap = require("dap")
 local keymap = vim.keymap
 
@@ -50,12 +51,12 @@ local on_attach = function(client, bufnr)
             { bufnr }
         )
     end, { desc = "Toggle inlay hints" })
-    keymap.set(
-        "n",
-        "<C-k>",
-        signature.toggle_float_win,
-        { desc = "Toggle function signature" }
-    )
+    -- keymap.set(
+    --     "n",
+    --     "<C-k>",
+    --     signature.toggle_float_win,
+    --     { desc = "Toggle function signature" }
+    -- )
     keymap.set(
         "n",
         "<Leader>td",
@@ -209,7 +210,6 @@ require("lspconfig").tinymist.setup({
     on_attach = on_attach,
     settings = {
         formatterMode = "typstyle",
-        exportPdf = "onType",
     },
 })
 

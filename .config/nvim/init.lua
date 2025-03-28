@@ -17,7 +17,7 @@ require("user.gitsigns")
 require("user.telescope")
 
 -- LSP
-require("user.lsp.signature")
+-- require("user.lsp.signature")
 require("user.lsp.mason")
 require("user.lsp.lspconfig")
 require("user.lsp.conform")
