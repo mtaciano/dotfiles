@@ -138,7 +138,8 @@ local on_attach = function(client, bufnr)
 end
 
 -- Lua
-require("lspconfig").lua_ls.setup({
+vim.lsp.enable("lua_ls")
+vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -156,7 +157,8 @@ require("lspconfig").lua_ls.setup({
 })
 
 -- Rust
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.enable("rust_analyzer")
+vim.lsp.config("rust_analyzer", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -177,14 +179,16 @@ require("lspconfig").rust_analyzer.setup({
 })
 
 -- Typescript/JavaScript
-require("lspconfig").eslint.setup({
+vim.lsp.enable("eslint")
+vim.lsp.config("eslint", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
         experimental = { useFlatConfig = false },
     },
 })
-require("lspconfig").ts_ls.setup({
+vim.lsp.enable("ts_ls")
+vim.lsp.config("ts_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     init_options = {
@@ -193,19 +197,26 @@ require("lspconfig").ts_ls.setup({
 })
 
 -- Prisma
+vim.lsp.enable("prismals")
+vim.lsp.config("prismals", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
 require("lspconfig").prismals.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- Svelte
-require("lspconfig").svelte.setup({
+vim.lsp.enable("svelte")
+vim.lsp.config("svelte", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- Typst
-require("lspconfig").tinymist.setup({
+vim.lsp.enable("tinymist")
+vim.lsp.config("tinymist", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -214,45 +225,83 @@ require("lspconfig").tinymist.setup({
 })
 
 -- CSS
-require("lspconfig").cssls.setup({
+vim.lsp.enable("cssls")
+vim.lsp.config("cssls", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- JSON
-require("lspconfig").jsonls.setup({
+vim.lsp.enable("jsonls")
+vim.lsp.config("jsonls", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- Docker
-require("lspconfig").dockerls.setup({
+vim.lsp.enable("dockerls")
+vim.lsp.config("dockerls", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
-require("lspconfig").docker_compose_language_service.setup({
+vim.lsp.enable("docker_compose_language_service")
+vim.lsp.config("docker_compose_language_service", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- TailwindCSS
-require("lspconfig").tailwindcss.setup({
+vim.lsp.enable("tailwindcss")
+vim.lsp.config("tailwindcss", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- Python
-require("lspconfig").ruff.setup({
+vim.lsp.enable("ruff")
+vim.lsp.config("ruff", {
     capabilities = capabilities,
     on_attach = on_attach,
+    init_options = {
+        settings = {
+            lint = {
+                select = {
+                    "E", -- pycodestyle
+                    "W", -- pycodestyle
+                    "F", -- Pyflakes
+                    "UP", -- pyupgrade
+                    "B", -- flake8-bugbear
+                    "SIM", -- flake8-simplify
+                    "I", -- isort
+                    "C4", -- flake8-comprehensions
+                },
+            },
+        },
+    },
+})
+vim.lsp.enable("basedpyright")
+vim.lsp.config("basedpyright", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        basedpyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+            analysis = {
+                typeCheckingMode = "standard",
+            },
+        },
+    },
 })
 
 -- C/C++
-require("lspconfig").clangd.setup({
+vim.lsp.enable("clangd")
+vim.lsp.config("clangd", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
-require("lspconfig").cmake.setup({
+vim.lsp.enable("cmake")
+vim.lsp.config("cmake", {
     capabilities = capabilities,
     on_attach = on_attach,
 })

@@ -2,7 +2,6 @@ local g = vim.g -- Global variables
 local opt = vim.opt -- Set options
 local keymap = vim.keymap -- Keymap options
 local cmd = vim.cmd -- Commands
-local builtin = require("telescope.builtin")
 
 -- Global options
 keymap.set("n", "<Space>", "<Nop>") -- First we remove the keybind
@@ -41,6 +40,8 @@ opt.scrolloff = 2 -- Number of lines to keep above and below the cursor
 opt.spell = false
 opt.spelllang = "en_us,pt_br" -- What languages to check the spelling
 
+vim.diagnostic.config({ virtual_text = true }) -- Enable virtual diagnostic text
+
 -- Commands
 cmd.syntax("off")
 
@@ -66,13 +67,4 @@ keymap.set(
 keymap.set("n", "n", "nzz", { desc = "Center search results" })
 keymap.set("", "H", "^", { desc = "Go to the first non-blank char" })
 keymap.set("", "L", "$", { desc = "Go to the last non-blank char" })
-keymap.set(
-    "n",
-    "<Leader>ff",
-    builtin.find_files,
-    { desc = "File Picker (respects .gitignore)" }
-)
-keymap.set("n", "<Leader>b", builtin.buffers, { desc = "Manage Buffers" })
-keymap.set("n", "<Leader>fg", builtin.live_grep, { desc = "Grep CWD" })
-keymap.set("n", "<Leader>fm", builtin.marks, { desc = "List Marks" })
 keymap.set("!", "<C-H>", "<C-w>", { desc = "Delete word" })

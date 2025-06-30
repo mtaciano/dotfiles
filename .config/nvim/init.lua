@@ -1,5 +1,9 @@
+-- User configuration (need to be loaded first)
+require("user.core.options")
+require("user.core.autocommands")
+
 -- Plugins
-require("user.plugins")
+require("user.lazy")
 
 -- Treesitter
 require("user.treesitter")
@@ -25,9 +29,8 @@ require("user.lsp.dap")
 
 -- User configuration
 require("user.statusline")
+require("user.core.buffers")
 require("user.core.colorscheme")
-require("user.core.options")
-require("user.core.autocommands")
 
 -- Highlights
 require("user.colorizer") -- Has to load after core.options
