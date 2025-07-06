@@ -1,4 +1,3 @@
-local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- Highlight yanked text for 500ms using the "Visual" highlight group
@@ -27,11 +26,21 @@ autocmd("Filetype", {
     command = "set colorcolumn=88",
 })
 
--- Spell-check Markdown files, Git Commit Messages and Typst documents
+-- Set textwidth for some languages
 autocmd("Filetype", {
-    pattern = { "markdown" },
-    command = "setlocal spell",
+    pattern = { "rust" },
+    command = "set textwidth=100",
 })
+autocmd("Filetype", {
+    pattern = { "python" },
+    command = "set textwidth=88",
+})
+
+-- Spell-check Markdown files, Git Commit Messages and Typst documents
+-- autocmd("Filetype", {
+--     pattern = { "markdown" },
+--     command = "setlocal spell",
+-- })
 autocmd("Filetype", {
     pattern = { "gitcommit" },
     command = "setlocal spell",
@@ -58,6 +67,19 @@ autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
         require("conform").format({ bufnr = args.buf })
+    end,
+})
+
+-- Make treesitter work
+autocmd("FileType", {
+    pattern = require("user.treesitter").langs,
+    callback = function()
+        -- syntax highlighting, provided by Neovim
+        vim.treesitter.start()
+        -- folds, provided by Neovim
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
     end,
 })
 

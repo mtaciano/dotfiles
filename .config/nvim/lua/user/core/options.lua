@@ -1,7 +1,9 @@
 local g = vim.g -- Global variables
 local opt = vim.opt -- Set options
+local o = vim.o -- Set options
 local keymap = vim.keymap -- Keymap options
 local cmd = vim.cmd -- Commands
+local diagnostic = vim.diagnostic -- Diagnostics
 
 -- Global options
 keymap.set("n", "<Space>", "<Nop>") -- First we remove the keybind
@@ -16,6 +18,7 @@ opt.number = true -- Show line number
 opt.relativenumber = true -- Make the line number relative
 opt.showmatch = true -- Highlight matching parenthesis
 opt.colorcolumn = "80" -- Line length marker at 80 columns
+opt.textwidth = 80 -- Set text width to 80 columns
 opt.wrap = false -- Do not wrap lines
 opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.background = "dark" -- Use dark theme
@@ -39,11 +42,13 @@ opt.scrolloff = 2 -- Number of lines to keep above and below the cursor
 -- writing documentation since it has a lot of false positives
 opt.spell = false
 opt.spelllang = "en_us,pt_br" -- What languages to check the spelling
+opt.formatoptions:remove("t") -- Don't auto-wrap text
+o.formatexpr = "v:lua.require('conform').formatexpr()" -- Use conform for formatting
 
-vim.diagnostic.config({ virtual_text = true }) -- Enable virtual diagnostic text
+diagnostic.config({ virtual_text = true }) -- Enable virtual diagnostic text
 
 -- Commands
-cmd.syntax("off")
+cmd.syntax("off") -- Disable syntax (handled by treesitter)
 
 -- Keymaps
 keymap.set(

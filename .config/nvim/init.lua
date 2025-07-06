@@ -1,12 +1,14 @@
 -- User configuration (need to be loaded first)
 require("user.core.options")
-require("user.core.autocommands")
 
 -- Plugins
 require("user.lazy")
 
 -- Treesitter
 require("user.treesitter")
+
+-- Load autocommands after treesitter
+require("user.core.autocommands")
 
 -- Surround
 require("user.surround")

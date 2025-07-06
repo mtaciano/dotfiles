@@ -163,8 +163,10 @@ vim.lsp.config("rust_analyzer", {
     on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
-            checkOnSave = {
-                allFeatures = true,
+            cargo = {
+                features = "all",
+            },
+            check = {
                 overrideCommand = {
                     "cargo",
                     "clippy",

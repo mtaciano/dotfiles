@@ -78,7 +78,6 @@ return {
                         kind_icon = {
                             ellipsis = false,
                             text = function(ctx)
-                                local lspkind = require("lspkind")
                                 local icon = ctx.kind_icon
                                 if
                                     vim.tbl_contains(
