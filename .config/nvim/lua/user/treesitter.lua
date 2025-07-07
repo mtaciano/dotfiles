@@ -46,15 +46,6 @@ local langs = {
     "zig",
 }
 require("nvim-treesitter").install(langs)
-require("nvim-treesitter").setup({
-    auto_install = true,
-    highlight = {
-        enable = true,
-    },
-    indent = {
-        enable = true,
-    },
-})
 
 require("nvim-treesitter-textobjects").setup({
     select = {

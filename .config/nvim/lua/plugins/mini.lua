@@ -1,2 +1,3 @@
 -- Status line
-return { "echasnovski/mini.nvim" }
+-- Surround
+return { "echasnovski/mini.nvim", version = false }
