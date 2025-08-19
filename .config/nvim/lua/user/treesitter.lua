@@ -31,6 +31,7 @@ local langs = {
     "python",
     "ruby",
     "rust",
+    "requirements",
     "sql",
     "ssh_config",
     "svelte",

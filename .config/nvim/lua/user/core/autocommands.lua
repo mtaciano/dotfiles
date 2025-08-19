@@ -72,7 +72,7 @@ autocmd("BufWritePre", {
 
 -- Make treesitter work
 autocmd("FileType", {
-    pattern = require("user.treesitter").langs,
+    pattern = require("nvim-treesitter").get_installed(),
     callback = function()
         -- syntax highlighting, provided by Neovim
         vim.treesitter.start()
