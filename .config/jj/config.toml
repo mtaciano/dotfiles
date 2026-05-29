@@ -1,0 +1,23 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Miguel Taciano"
+email = "me@mtaciano.com"
+
+[signing]
+behavior = "drop"
+backend = "gpg"
+
+[ui]
+editor = "nvim"
+default-command = "log"
+pager = "delta"
+diff-formatter = ":git"
+
+[git]
+sign-on-push = true
+private-commits = "description(glob:'wip:*') | description(glob:'private:*')"
+
+[aliases]
+gf = ["git", "fetch"]
+gp = ["git", "push"]
