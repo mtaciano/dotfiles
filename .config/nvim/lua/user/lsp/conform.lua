@@ -31,3 +31,10 @@ require("conform").setup({
     -- Conform will notify you when no formatters are available for the buffer
     notify_no_formatters = true,
 })
+
+require("conform").formatters.rustfmt = {
+    options = {
+        default_edition = "2024",
+        nightly = true,
+    },
+}

@@ -1,7 +1,5 @@
 local capabilities = require("blink.cmp").get_lsp_capabilities()
---local capabilities = require("user.lsp.completion")
 local builtin = require("telescope.builtin")
--- local signature = require("lsp_signature")
 local dap = require("dap")
 local keymap = vim.keymap
 
@@ -51,12 +49,6 @@ local on_attach = function(client, bufnr)
             { bufnr }
         )
     end, { desc = "Toggle inlay hints" })
-    -- keymap.set(
-    --     "n",
-    --     "<C-k>",
-    --     signature.toggle_float_win,
-    --     { desc = "Toggle function signature" }
-    -- )
     keymap.set(
         "n",
         "<Leader>td",
@@ -228,18 +220,6 @@ vim.lsp.config("jsonls", {
     on_attach = on_attach,
 })
 vim.lsp.enable("jsonls")
-
--- Docker
-vim.lsp.config("dockerls", {
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-vim.lsp.enable("dockerls")
-vim.lsp.config("docker_compose_language_service", {
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-vim.lsp.enable("docker_compose_language_service")
 
 -- TailwindCSS
 vim.lsp.config("tailwindcss", {
