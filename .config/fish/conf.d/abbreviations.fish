@@ -4,11 +4,12 @@ abbr --add --global --command={clang,gcc} warn -- "-Wall -Wextra"
 # Make usage of `emerge` easier
 abbr --add emerge "sudo emerge"
 abbr --add update "sudo emerge --update --changed-use @world"
+abbr --add fetch "sudo emaint --auto sync"
 
 # Use different commands but write the same commands
-abbr --add ls "eza"
+abbr --add ls eza
 abbr --add lss "eza -hgoal --git --icons --time-style long-iso --no-user"
-abbr --add cd "z"
+abbr --add cd z
 
 # Use neovim as vim (easier to write)
-abbr --add vim "nvim"
+abbr --add vim nvim
