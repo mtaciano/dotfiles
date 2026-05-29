@@ -191,12 +191,12 @@ vim.lsp.config("ts_ls", {
 })
 vim.lsp.enable("ts_ls")
 
--- Prisma
-vim.lsp.config("prismals", {
+-- Astro
+vim.lsp.config("astro", {
     capabilities = capabilities,
     on_attach = on_attach,
 })
-vim.lsp.enable("prismals")
+vim.lsp.enable("astro")
 
 -- Svelte
 vim.lsp.config("svelte", {
@@ -271,20 +271,11 @@ vim.lsp.config("ruff", {
     },
 })
 vim.lsp.enable("ruff")
-vim.lsp.config("basedpyright", {
+vim.lsp.config("ty", {
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-        basedpyright = {
-            -- Using Ruff's import organizer
-            disableOrganizeImports = true,
-            analysis = {
-                typeCheckingMode = "standard",
-            },
-        },
-    },
 })
-vim.lsp.enable("basedpyright")
+vim.lsp.enable("ty")
 
 -- C/C++
 vim.lsp.config("clangd", {
@@ -297,3 +288,10 @@ vim.lsp.config("cmake", {
     on_attach = on_attach,
 })
 vim.lsp.enable("cmake")
+
+-- QML
+vim.lsp.config("qmlls", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+vim.lsp.enable("qmlls")

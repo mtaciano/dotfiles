@@ -25,6 +25,10 @@ autocmd("Filetype", {
     pattern = { "python" },
     command = "set colorcolumn=88",
 })
+autocmd("Filetype", {
+    pattern = { "jjdescription" },
+    command = "set colorcolumn=72",
+})
 
 -- Set textwidth for some languages
 autocmd("Filetype", {
@@ -35,6 +39,10 @@ autocmd("Filetype", {
     pattern = { "python" },
     command = "set textwidth=88",
 })
+autocmd("Filetype", {
+    pattern = { "jjdescription" },
+    command = "set textwidth=72",
+})
 
 -- Spell-check Markdown files, Git Commit Messages and Typst documents
 -- autocmd("Filetype", {
@@ -42,12 +50,22 @@ autocmd("Filetype", {
 --     command = "setlocal spell",
 -- })
 autocmd("Filetype", {
+    pattern = { "jjdescription" },
+    command = "setlocal spell",
+})
+autocmd("Filetype", {
     pattern = { "gitcommit" },
     command = "setlocal spell",
 })
 autocmd("Filetype", {
     pattern = { "typst" },
     command = "setlocal spell",
+})
+
+-- Set syntax on
+autocmd("Filetype", {
+    pattern = { "jjdescription" },
+    command = "syntax on",
 })
 
 -- Wrap lines when writing a typst document
