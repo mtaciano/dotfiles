@@ -19,8 +19,9 @@ config.default_prog = {
 }
 config.enable_wayland = false
 config.color_scheme = "Gruvbox dark, hard (base16)"
-config.font = wezterm.font("JetBrains Mono")
-config.harfbuzz_features = { "zero", "cv12", "cv18" }
+config.font = wezterm.font("Iosevka Squared")
+config.font_size = 12.0
+config.xcursor_theme = "Adwaita"
 config.use_ime = true
 config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
